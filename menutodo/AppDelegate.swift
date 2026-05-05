@@ -5,7 +5,8 @@ import Observation
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
-    private var popover: NSPopover?
+    private var panel: NSPanel?
+    private var eventMonitor: Any?
     let store = TodoStore()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -14,32 +15,63 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem?.button {
             button.image = badgeImage(count: 0)
             button.imageScaling = .scaleProportionallyDown
-            button.action = #selector(togglePopover)
+            button.action = #selector(togglePanel)
             button.target = self
         }
 
-        let popover = NSPopover()
-        popover.contentSize = NSSize(width: 320, height: 400)
-        popover.behavior = .transient
-        popover.contentViewController = NSHostingController(rootView: PopoverView(store: store))
-        self.popover = popover
+        let panel = NSPanel(
+            contentRect: NSRect(x: 0, y: 0, width: 320, height: 400),
+            styleMask: [.nonactivatingPanel, .fullSizeContentView, .borderless],
+            backing: .buffered,
+            defer: false
+        )
+        panel.isOpaque = false
+        panel.backgroundColor = .clear
+        panel.hasShadow = true
+        panel.isFloatingPanel = true
+        panel.level = .popUpMenu
+        panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        panel.contentView = NSHostingView(rootView: PopoverView(store: store))
+        self.panel = panel
+
+        eventMonitor = NSEvent.addGlobalMonitorForEvents(
+            matching: [.leftMouseDown, .rightMouseDown]
+        ) { [weak self] _ in
+            self?.closePanel()
+        }
 
         observeBadge()
         updateBadge()
     }
 
-    @objc private func togglePopover() {
-        guard let button = statusItem?.button else { return }
-        if popover?.isShown == true {
-            popover?.performClose(nil)
+    @objc private func togglePanel() {
+        if panel?.isVisible == true {
+            closePanel()
         } else {
-            if #available(macOS 14, *) {
-                NSApp.activate()
-            } else {
-                NSApp.activate(ignoringOtherApps: true)
-            }
-            popover?.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+            openPanel()
         }
+    }
+
+    private func openPanel() {
+        guard let button = statusItem?.button,
+              let buttonWindow = button.window else { return }
+
+        let buttonFrame = buttonWindow.convertToScreen(
+            button.convert(button.bounds, to: nil)
+        )
+        let x = buttonFrame.midX - 160
+        let y = buttonFrame.minY - 400 - 6
+        panel?.setFrame(NSRect(x: x, y: y, width: 320, height: 400), display: true)
+        panel?.makeKeyAndOrderFront(nil)
+        if #available(macOS 14, *) {
+            NSApp.activate()
+        } else {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+    }
+
+    private func closePanel() {
+        panel?.orderOut(nil)
     }
 
     private func updateBadge() {

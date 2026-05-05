@@ -14,7 +14,8 @@ struct PopoverView: View {
             addInput
         }
         .frame(width: 320, height: 400)
-        .background(.ultraThinMaterial)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     private var header: some View {
