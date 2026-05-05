@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CA5189A8E0922B91F258A015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */; };
+		AA000001000000000000AAA1 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000000000000AAA0 /* TodoItem.swift */; };
+		AA000001000000000000AAB1 /* TodoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000000000000AAB0 /* TodoItemTests.swift */; };
+		AA000001000000000000AAC1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000000000000AAC0 /* App.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,9 @@
 		4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		570BE900347AD36B18B1253E /* menutodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menutodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E65E7B765C90D86BC5872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AA000001000000000000AAA0 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		AA000001000000000000AAB0 /* TodoItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTests.swift; sourceTree = "<group>"; };
+		AA000001000000000000AAC0 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -49,6 +55,7 @@
 		8FC7446C180AD9BA1520125D /* menutodoTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA000001000000000000AAB0 /* TodoItemTests.swift */,
 			);
 			path = menutodoTests;
 			sourceTree = "<group>";
@@ -56,6 +63,8 @@
 		D293D7B135286ED03643E309 /* menutodo */ = {
 			isa = PBXGroup;
 			children = (
+				AA000001000000000000AAC0 /* App.swift */,
+				AA000001000000000000AAA0 /* TodoItem.swift */,
 				4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */,
 				F44E65E7B765C90D86BC5872 /* Info.plist */,
 			);
@@ -148,6 +157,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA000001000000000000AAC1 /* App.swift in Sources */,
+				AA000001000000000000AAA1 /* TodoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA000001000000000000AAB1 /* TodoItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +188,7 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -234,6 +247,7 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
