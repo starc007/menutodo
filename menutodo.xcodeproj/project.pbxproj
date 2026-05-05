@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0877A2FA80F364DD8C97034D /* TodoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55932B22F4C8405AECC28D7 /* TodoRowView.swift */; };
 		2267D00F577D1F29BC274FD1 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF19568636B3591D609614 /* TodoItem.swift */; };
 		62F567394EC9BEC435E6CE18 /* MenuTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD4B3EB409CCBF168D1F33 /* MenuTodoApp.swift */; };
 		8299D20F414B2EA5B9761FCC /* TodoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66417F9E7FD77B2EBAD718A6 /* TodoItemTests.swift */; };
@@ -34,6 +35,7 @@
 		5ED9CAC756EEE5F45CCB4953 /* TodoStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStoreTests.swift; sourceTree = "<group>"; };
 		66417F9E7FD77B2EBAD718A6 /* TodoItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTests.swift; sourceTree = "<group>"; };
 		8DFF19568636B3591D609614 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		A55932B22F4C8405AECC28D7 /* TodoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRowView.swift; sourceTree = "<group>"; };
 		AF98A35B058300BE926B87FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBBD4B3EB409CCBF168D1F33 /* MenuTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTodoApp.swift; sourceTree = "<group>"; };
 		D3F56E4BE076F136CAAF372C /* TodoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStore.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				BBBD4B3EB409CCBF168D1F33 /* MenuTodoApp.swift */,
 				E0BB8000A356A434E838A674 /* PopoverView.swift */,
 				8DFF19568636B3591D609614 /* TodoItem.swift */,
+				A55932B22F4C8405AECC28D7 /* TodoRowView.swift */,
 				D3F56E4BE076F136CAAF372C /* TodoStore.swift */,
 			);
 			path = menutodo;
@@ -173,6 +176,7 @@
 				62F567394EC9BEC435E6CE18 /* MenuTodoApp.swift in Sources */,
 				A7AD020FA02621EBD0932E40 /* PopoverView.swift in Sources */,
 				2267D00F577D1F29BC274FD1 /* TodoItem.swift in Sources */,
+				0877A2FA80F364DD8C97034D /* TodoRowView.swift in Sources */,
 				EE7B79B2A44C7CC70483316B /* TodoStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
