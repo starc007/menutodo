@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "menutodo",
+  "description": "Claude Code skill for interacting with menutodo — native macOS menu bar todo app. Read and write todos directly from Claude Code.",
+  "owner": {
+    "name": "Saurabh",
+    "url": "https://github.com/starc007"
+  },
+  "plugins": [
+    {
+      "name": "menutodo",
+      "description": "Read and write todos in menutodo's ~/.menutodo.json from Claude Code.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
