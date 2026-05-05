@@ -1,0 +1,29 @@
+name: menutodo
+options:
+  bundleIdPrefix: com.starc
+  deploymentTarget:
+    macOS: "15.0"
+targets:
+  menutodo:
+    type: application
+    platform: macOS
+    sources:
+      - path: menutodo
+    settings:
+      base:
+        INFOPLIST_FILE: menutodo/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.starc.menutodo
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "15.0"
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGNING_REQUIRED: "NO"
+  menutodoTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: menutodoTests
+    dependencies:
+      - target: menutodo
+    settings:
+      base:
+        MACOSX_DEPLOYMENT_TARGET: "15.0"
