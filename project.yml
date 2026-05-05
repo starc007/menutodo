@@ -3,6 +3,9 @@ options:
   bundleIdPrefix: com.starc
   deploymentTarget:
     macOS: "15.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
 targets:
   menutodo:
     type: application
