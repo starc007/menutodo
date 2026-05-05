@@ -24,7 +24,7 @@ final class TodoStoreTests: XCTestCase {
         XCTAssertFalse(store.todos[0].done)
     }
 
-    func testAdd_trimsWhitespace() {
+    func testAdd_storesTextVerbatim() {
         store.add("  spaced  ")
         XCTAssertEqual(store.todos[0].text, "  spaced  ")
     }
