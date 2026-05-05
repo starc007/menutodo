@@ -1,0 +1,8 @@
+{
+  "name": "menutodo",
+  "description": "Claude Code skill for interacting with menutodo — native macOS menu bar todo app.",
+  "author": {
+    "name": "Saurabh",
+    "url": "https://github.com/starc007"
+  }
+}

@@ -26,6 +26,29 @@ Native macOS menu bar todo app. Lives in your menu bar, stays out of your way.
 
 ## Claude Code integration
 
+### Install the skill
+
+```bash
+# Claude Code plugin
+/plugin marketplace add starc007/menutodo
+/plugin install menutodo
+
+# or via skill CLI
+npx skills add starc007/menutodo
+```
+
+Then just ask Claude:
+
+```
+add todo: review PR
+list my todos
+mark "deploy staging" as done
+clear completed
+show todos tagged work
+```
+
+### How it works
+
 Todos are stored at `~/.menutodo.json`:
 
 ```json
