@@ -1,5 +1,4 @@
 import SwiftUI
-import AppKit
 
 @main
 struct MenuTodoApp: App {
@@ -10,7 +9,7 @@ struct MenuTodoApp: App {
             PopoverView(store: store)
         } label: {
             HStack(spacing: 3) {
-                Image(systemName: "checklist")
+                Image(systemName: "checkmark.circle.fill")
                 if store.pendingCount > 0 {
                     Text("\(store.pendingCount)")
                         .font(.caption2.monospacedDigit().weight(.semibold))

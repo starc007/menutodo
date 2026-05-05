@@ -16,8 +16,18 @@ final class TodoStore {
         todos.filter { !$0.done }.count
     }
 
-    func add(_ text: String) {
-        todos.append(TodoItem(text: text))
+    var allTags: [String] {
+        Array(Set(todos.compactMap(\.tag))).sorted()
+    }
+
+    func add(_ text: String, tag: String? = nil) {
+        todos.append(TodoItem(text: text, tag: tag))
+        save()
+    }
+
+    func setTag(_ tag: String?, for item: TodoItem) {
+        guard let index = todos.firstIndex(where: { $0.id == item.id }) else { return }
+        todos[index].tag = tag
         save()
     }
 

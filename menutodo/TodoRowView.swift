@@ -7,32 +7,44 @@ struct TodoRowView: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Button {
-                store.toggle(item)
-            } label: {
+            Button { store.toggle(item) } label: {
                 Image(systemName: item.done ? "checkmark.circle.fill" : "circle")
                     .foregroundStyle(item.done ? Color.green : Color.secondary)
-                    .font(.system(size: 16))
+                    .font(.system(size: 15))
             }
             .buttonStyle(.plain)
 
-            Text(item.text)
-                .strikethrough(item.done)
-                .foregroundStyle(item.done ? Color.secondary : Color.primary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(item.text)
+                    .strikethrough(item.done)
+                    .foregroundStyle(item.done ? Color.secondary : Color.primary)
+                    .font(.system(size: 13))
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
-            Button {
-                store.delete(item)
-            } label: {
+                if let tag = item.tag {
+                    Text(tag)
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundStyle(Color.accentColor.opacity(0.9))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.accentColor.opacity(0.12), in: Capsule())
+                }
+            }
+
+            Button { store.delete(item) } label: {
                 Image(systemName: "xmark")
                     .foregroundStyle(Color.secondary)
-                    .font(.system(size: 11))
+                    .font(.system(size: 10, weight: .medium))
             }
             .buttonStyle(.plain)
             .opacity(isHovered ? 1 : 0)
         }
-        .contentShape(Rectangle())
         .padding(.vertical, 2)
+        .contentShape(Rectangle())
         .onHover { isHovered = $0 }
+        .background(
+            isHovered ? Color.primary.opacity(0.04) : Color.clear,
+            in: RoundedRectangle(cornerRadius: 6)
+        )
     }
 }
