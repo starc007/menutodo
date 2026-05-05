@@ -33,3 +33,4 @@ targets:
         SWIFT_VERSION: "5.9"
         CODE_SIGN_IDENTITY: "-"
         CODE_SIGNING_REQUIRED: "NO"
+        GENERATE_INFOPLIST_FILE: YES
