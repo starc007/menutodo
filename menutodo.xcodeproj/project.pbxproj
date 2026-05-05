@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CA5189A8E0922B91F258A015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		891BE991E189C86484782479 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -18,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		30B6F3731C2F66059B5C410A /* menutodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = menutodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		570BE900347AD36B18B1253E /* menutodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menutodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E65E7B765C90D86BC5872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +56,7 @@
 		D293D7B135286ED03643E309 /* menutodo */ = {
 			isa = PBXGroup;
 			children = (
+				4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */,
 				F44E65E7B765C90D86BC5872 /* Info.plist */,
 			);
 			path = menutodo;
@@ -64,6 +70,7 @@
 			buildConfigurationList = 83C7DE708F31E261E8C94C13 /* Build configuration list for PBXNativeTarget "menutodo" */;
 			buildPhases = (
 				13656FBBC8A042178B48A703 /* Sources */,
+				F2F656842DACCEA188CADB88 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +132,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		F2F656842DACCEA188CADB88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA5189A8E0922B91F258A015 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		13656FBBC8A042178B48A703 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -155,6 +173,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -164,6 +184,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.starc.menutodoTests;
 				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/menutodo.app/Contents/MacOS/menutodo";
 			};
 			name = Release;
@@ -210,6 +231,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -219,6 +242,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.starc.menutodoTests;
 				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/menutodo.app/Contents/MacOS/menutodo";
 			};
 			name = Debug;
