@@ -14,7 +14,7 @@ struct PopoverView: View {
             addInput
         }
         .frame(width: 320, height: 400)
-        .background(glassBackground)
+        .background(.ultraThinMaterial)
     }
 
     private var header: some View {
@@ -78,17 +78,6 @@ struct PopoverView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-    }
-
-    @ViewBuilder
-    private var glassBackground: some View {
-        if #available(macOS 26, *) {
-            Rectangle()
-                .glassEffect()
-        } else {
-            Rectangle()
-                .fill(.ultraThinMaterial)
-        }
     }
 
     private func submitNewTodo() {
