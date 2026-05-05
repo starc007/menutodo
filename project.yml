@@ -20,17 +20,3 @@ targets:
         MACOSX_DEPLOYMENT_TARGET: "15.0"
         CODE_SIGN_IDENTITY: "-"
         CODE_SIGNING_REQUIRED: "NO"
-  menutodoTests:
-    type: bundle.unit-test
-    platform: macOS
-    sources:
-      - path: menutodoTests
-    dependencies:
-      - target: menutodo
-    settings:
-      base:
-        MACOSX_DEPLOYMENT_TARGET: "15.0"
-        SWIFT_VERSION: "5.9"
-        CODE_SIGN_IDENTITY: "-"
-        CODE_SIGNING_REQUIRED: "NO"
-        GENERATE_INFOPLIST_FILE: YES

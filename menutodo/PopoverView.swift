@@ -37,16 +37,16 @@ struct PopoverView: View {
     }
 
     private var todoList: some View {
-        List {
-            ForEach(store.todos) { item in
-                TodoRowView(item: item, store: store)
-                    .listRowInsets(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
+        ScrollView {
+            LazyVStack(spacing: 0) {
+                ForEach(store.todos) { item in
+                    TodoRowView(item: item, store: store)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 2)
+                }
             }
+            .padding(.vertical, 4)
         }
-        .listStyle(.plain)
-        .scrollContentBackground(.hidden)
         .overlay {
             if store.todos.isEmpty {
                 Text("No todos yet")
