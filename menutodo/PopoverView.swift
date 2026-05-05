@@ -5,8 +5,9 @@ struct PopoverView: View {
     @State private var newText = ""
     @State private var newTag = ""
     @State private var selectedTag: String? = nil
-    @State private var showTagPicker = false
+    @State private var showTagInput = false
     @FocusState private var inputFocused: Bool
+    @FocusState private var tagFocused: Bool
 
     private var filteredTodos: [TodoItem] {
         guard let tag = selectedTag else { return store.todos }
@@ -91,49 +92,89 @@ struct PopoverView: View {
     // MARK: Add input
 
     private var addInput: some View {
-        HStack(spacing: 8) {
-            Image(systemName: "plus")
-                .foregroundStyle(.tertiary)
-                .font(.system(size: 12))
+        VStack(spacing: 0) {
+            if showTagInput {
+                HStack(spacing: 6) {
+                    Image(systemName: "tag.fill")
+                        .font(.system(size: 10))
+                        .foregroundStyle(Color.accentColor)
 
-            TextField("Add todo…", text: $newText)
-                .textFieldStyle(.plain)
-                .focused($inputFocused)
-                .onSubmit { submitNewTodo() }
+                    TextField("Tag name…", text: $newTag)
+                        .textFieldStyle(.plain)
+                        .font(.system(size: 12))
+                        .focused($tagFocused)
+                        .onSubmit { showTagInput = false; inputFocused = true }
 
-            if !store.allTags.isEmpty || !newTag.isEmpty {
-                Menu {
-                    Button("No tag") { newTag = "" }
-                    Divider()
-                    ForEach(store.allTags, id: \.self) { tag in
-                        Button(tag) { newTag = tag }
+                    if !store.allTags.isEmpty {
+                        Menu {
+                            ForEach(store.allTags, id: \.self) { tag in
+                                Button(tag) { newTag = tag; showTagInput = false; inputFocused = true }
+                            }
+                        } label: {
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 9))
+                                .foregroundStyle(.secondary)
+                        }
+                        .menuStyle(.borderlessButton)
+                        .fixedSize()
                     }
+
+                    Button {
+                        newTag = ""
+                        showTagInput = false
+                        inputFocused = true
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 9))
+                            .foregroundStyle(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
+                .background(Color.accentColor.opacity(0.06))
+
+                Divider().opacity(0.3)
+            }
+
+            HStack(spacing: 8) {
+                Image(systemName: "plus")
+                    .foregroundStyle(.tertiary)
+                    .font(.system(size: 12))
+
+                TextField("Add todo…", text: $newText)
+                    .textFieldStyle(.plain)
+                    .focused($inputFocused)
+                    .onSubmit { submitNewTodo() }
+
+                Button {
+                    showTagInput.toggle()
+                    if showTagInput { tagFocused = true }
                 } label: {
                     HStack(spacing: 3) {
-                        Image(systemName: "tag")
-                            .font(.system(size: 10))
+                        Image(systemName: newTag.isEmpty ? "tag" : "tag.fill")
+                            .font(.system(size: 11))
                         if !newTag.isEmpty {
                             Text(newTag)
-                                .font(.caption2)
+                                .font(.caption2.weight(.medium))
                         }
                     }
-                    .foregroundStyle(newTag.isEmpty ? .tertiary : .secondary)
-                }
-                .menuStyle(.borderlessButton)
-                .fixedSize()
-            }
-
-            if !newText.isEmpty {
-                Button(action: submitNewTodo) {
-                    Image(systemName: "return")
-                        .foregroundStyle(.secondary)
-                        .font(.system(size: 11))
+                    .foregroundStyle(newTag.isEmpty ? Color.secondary.opacity(0.5) : Color.accentColor)
                 }
                 .buttonStyle(.plain)
+
+                if !newText.isEmpty {
+                    Button(action: submitNewTodo) {
+                        Image(systemName: "return")
+                            .foregroundStyle(.secondary)
+                            .font(.system(size: 11))
+                    }
+                    .buttonStyle(.plain)
+                }
             }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 11)
         }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 11)
     }
 
     private func submitNewTodo() {
