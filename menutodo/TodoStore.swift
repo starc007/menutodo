@@ -50,7 +50,11 @@ final class TodoStore {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = .prettyPrinted
-        guard let data = try? encoder.encode(todos) else { return }
-        try? data.write(to: fileURL, options: .atomic)
+        do {
+            let data = try encoder.encode(todos)
+            try data.write(to: fileURL, options: .atomic)
+        } catch {
+            print("[menutodo] Failed to save todos: \(error)")
+        }
     }
 }
