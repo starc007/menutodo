@@ -92,9 +92,10 @@ struct PopoverView: View {
     }
 
     private func submitNewTodo() {
-        let trimmed = newText.trimmingCharacters(in: .whitespaces)
+        let trimmed = newText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
         store.add(trimmed)
         newText = ""
+        inputFocused = true
     }
 }
