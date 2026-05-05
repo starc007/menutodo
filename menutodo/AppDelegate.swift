@@ -23,6 +23,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         self.popover = popover
 
         observeBadge()
+        updateBadge()
     }
 
     @objc private func togglePopover() {
@@ -30,7 +31,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if popover?.isShown == true {
             popover?.performClose(nil)
         } else {
-            NSApp.activate(ignoringOtherApps: true)
+            if #available(macOS 14, *) {
+                NSApp.activate()
+            } else {
+                NSApp.activate(ignoringOtherApps: true)
+            }
             popover?.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         }
     }
