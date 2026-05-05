@@ -1,10 +1,22 @@
 import SwiftUI
+import AppKit
 
 @main
 struct MenuTodoApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @State private var store = TodoStore()
 
     var body: some Scene {
-        Settings { EmptyView() }
+        MenuBarExtra {
+            PopoverView(store: store)
+        } label: {
+            HStack(spacing: 3) {
+                Image(systemName: "checklist")
+                if store.pendingCount > 0 {
+                    Text("\(store.pendingCount)")
+                        .font(.caption2.monospacedDigit().weight(.semibold))
+                }
+            }
+        }
+        .menuBarExtraStyle(.window)
     }
 }

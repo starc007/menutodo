@@ -12,7 +12,6 @@
 		62F567394EC9BEC435E6CE18 /* MenuTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD4B3EB409CCBF168D1F33 /* MenuTodoApp.swift */; };
 		A7AD020FA02621EBD0932E40 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB8000A356A434E838A674 /* PopoverView.swift */; };
 		CA5189A8E0922B91F258A015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */; };
-		E53EA282074A45337DE75E1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF98A35B058300BE926B87FD /* AppDelegate.swift */; };
 		EE7B79B2A44C7CC70483316B /* TodoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F56E4BE076F136CAAF372C /* TodoStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +20,6 @@
 		570BE900347AD36B18B1253E /* menutodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menutodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFF19568636B3591D609614 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		A55932B22F4C8405AECC28D7 /* TodoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRowView.swift; sourceTree = "<group>"; };
-		AF98A35B058300BE926B87FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBBD4B3EB409CCBF168D1F33 /* MenuTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTodoApp.swift; sourceTree = "<group>"; };
 		D3F56E4BE076F136CAAF372C /* TodoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStore.swift; sourceTree = "<group>"; };
 		E0BB8000A356A434E838A674 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
@@ -48,7 +46,6 @@
 		D293D7B135286ED03643E309 /* menutodo */ = {
 			isa = PBXGroup;
 			children = (
-				AF98A35B058300BE926B87FD /* AppDelegate.swift */,
 				4C0AFE6A9046F88B74E5A03B /* Assets.xcassets */,
 				F44E65E7B765C90D86BC5872 /* Info.plist */,
 				BBBD4B3EB409CCBF168D1F33 /* MenuTodoApp.swift */,
@@ -127,7 +124,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E53EA282074A45337DE75E1F /* AppDelegate.swift in Sources */,
 				62F567394EC9BEC435E6CE18 /* MenuTodoApp.swift in Sources */,
 				A7AD020FA02621EBD0932E40 /* PopoverView.swift in Sources */,
 				2267D00F577D1F29BC274FD1 /* TodoItem.swift in Sources */,
