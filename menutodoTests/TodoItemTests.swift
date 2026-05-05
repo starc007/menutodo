@@ -7,7 +7,7 @@ final class TodoItemTests: XCTestCase {
         let item = TodoItem(text: "buy milk")
         XCTAssertFalse(item.done)
         XCTAssertEqual(item.text, "buy milk")
-        XCTAssertNotNil(item.id)
+        XCTAssertEqual(item.created.timeIntervalSinceNow, 0, accuracy: 1.0)
     }
 
     func testCodable_roundtrip() throws {
@@ -26,6 +26,7 @@ final class TodoItemTests: XCTestCase {
         XCTAssertEqual(decoded.id, id)
         XCTAssertEqual(decoded.text, "test task")
         XCTAssertTrue(decoded.done)
+        XCTAssertEqual(decoded.created, date)
     }
 
     func testIdentifiable_uniqueIDs() {
