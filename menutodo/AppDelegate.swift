@@ -10,18 +10,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     let store = TodoStore()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
         if let button = statusItem?.button {
-            button.image = badgeImage(count: 0)
-            button.imageScaling = .scaleProportionallyDown
+            let img = NSImage(systemSymbolName: "checklist", accessibilityDescription: "MenuTodo")
+            img?.isTemplate = true
+            button.image = img
+            button.imagePosition = .imageLeft
             button.action = #selector(togglePanel)
             button.target = self
         }
 
         let panel = NSPanel(
             contentRect: NSRect(x: 0, y: 0, width: 320, height: 400),
-            styleMask: [.nonactivatingPanel, .fullSizeContentView, .borderless],
+            styleMask: [.fullSizeContentView, .borderless],
             backing: .buffered,
             defer: false
         )
@@ -75,29 +77,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func updateBadge() {
-        statusItem?.button?.image = badgeImage(count: store.pendingCount)
-    }
-
-    private func badgeImage(count: Int) -> NSImage {
-        let size = NSSize(width: 20, height: 16)
-        let image = NSImage(size: size, flipped: false) { _ in
-            let cfg = NSImage.SymbolConfiguration(pointSize: 13, weight: .regular)
-            if let icon = NSImage(systemSymbolName: "checklist", accessibilityDescription: nil)?
-                    .withSymbolConfiguration(cfg) {
-                icon.draw(in: NSRect(x: 0, y: 1, width: 13, height: 13))
-            }
-            if count > 0 {
-                let attrs: [NSAttributedString.Key: Any] = [
-                    .font: NSFont.monospacedDigitSystemFont(ofSize: 9, weight: .semibold),
-                    .foregroundColor: NSColor.labelColor
-                ]
-                NSAttributedString(string: "\(count)", attributes: attrs)
-                    .draw(at: NSPoint(x: 14, y: 5))
-            }
-            return true
-        }
-        image.isTemplate = false
-        return image
+        let count = store.pendingCount
+        statusItem?.button?.title = count > 0 ? " \(count)" : ""
     }
 
     private func observeBadge() {
