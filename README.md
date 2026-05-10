@@ -72,13 +72,24 @@ list all pending todos
 clear completed
 ```
 
-## Requirements
+## Install
+
+### Download (easiest)
+
+Grab the latest `menutodo.zip` from [Releases](https://github.com/starc007/menutodo/releases), unzip, drag `menutodo.app` to `/Applications`.
+
+App is unsigned (no Apple Developer account). First launch:
+
+- Right-click `menutodo.app` → **Open** (bypasses Gatekeeper warning)
+- Or run once: `xattr -dr com.apple.quarantine /Applications/menutodo.app`
+
+### Requirements (build from source)
 
 - macOS 15.0+
 - Xcode 16+
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`)
 
-## Build
+## Build from source
 
 ```bash
 git clone https://github.com/saurabh10102/menutodo
